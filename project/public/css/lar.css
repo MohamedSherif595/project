@@ -1,0 +1,33 @@
+.dash{
+    background-color: #00193f;
+    padding: 0px;
+    margin-left: -5px;
+    margin-top: -15px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+}
+.side{
+    list-style-type: none;
+    display: flex;
+    padding: 20px  0px;
+    margin: 15px;
+}
+.nav{
+    text-decoration: none;
+    color: aliceblue;
+    padding: 20px;
+    margin-right: 20px;
+    margin-left: -15px;
+}   
+
+.nav:hover{
+
+    transition-duration: 0.8s;
+    color: rgb(16, 160, 30);
+    background-color: black;
+    
+}
+
+.jobs {
+    margin-bottom: 30px ;
+}
