@@ -10,14 +10,14 @@
     <div class="dash">
         <nav>
             <ul class="side">
-                <li><a class="nav" href="/project/public/" >home</a></li>
-                <li><a class="nav" href="/project/public/contact/" >contact</a></li>
+                <li><a class="nav" href="/project/public/post" >home</a></li>
                 @guest
-                <li><a class="nav" href="/project/public/login">LOG IN</a></li>
+                <li><a class="nav" href=" {{route('login')}} ">LOG IN</a></li>
                 <li><a class="nav" href="/project/public/register">REGISTER</a></li>
                 @endguest
 
                 @auth
+                <li><a class="nav" href="/project/public/create">create</a></li>
                     <form action="/project/public/logout" method="POST" >
                         @csrf
                         <li><button class="nav" >LOG OUT</button></li>

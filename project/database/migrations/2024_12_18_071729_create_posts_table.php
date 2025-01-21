@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\members::class);
+            $table->foreignIdFor(\App\Models\Member::class);
             $table->string('name');
             $table->timestamps();
         });
