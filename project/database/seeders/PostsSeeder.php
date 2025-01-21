@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\members;
-use App\Models\post;
+use App\Models\Member;
+use App\Models\Post;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,10 +14,10 @@ class PostsSeeder extends Seeder
      */
     public function run(): void
     {
-        post::factory(50)->create([
+        post::factory(30)->create([
 
             'name'=>fake()->country(),
-            'members_id'=>members::factory(),
+            'member_id'=>Member::factory(),
         ]);
 
     }
