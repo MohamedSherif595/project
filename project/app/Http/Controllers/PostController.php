@@ -17,8 +17,14 @@ class PostController extends Controller
         $posts = post::with('members')->simplePaginate(10);
         return view('posts.index' , ['posts' => $posts]);
     }
+<<<<<<< Updated upstream
     public function info(post $post){
         return view('posts.info' , ['post' => $post]);
+=======
+    public function show($id){
+        $posts=Post::find($id);
+        return view('posts.info' , ['post' =>$posts]);
+>>>>>>> Stashed changes
     }
     /**
      * Show the form for creating a new resource.

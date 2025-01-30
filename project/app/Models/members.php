@@ -13,5 +13,9 @@ class members extends Model
     public function posts(){
         return $this->hasMany(post::class);
     }
+
+    public function product(){
+        return $this->hasMany(product::class);
+    }
     
 }

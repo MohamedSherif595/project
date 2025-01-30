@@ -20,6 +20,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
         $this->call(EmployersSeeder::class);
+<<<<<<< Updated upstream
         $this->call(PostsSeeder::class);
+=======
+        $this->call(ProductsSeeder::class);
+        
+>>>>>>> Stashed changes
     }
 }
