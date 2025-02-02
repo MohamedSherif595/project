@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\members;
+use App\Models\Member;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,7 +12,7 @@ class EmployersSeeder extends Seeder
      */
     public function run(): void
     {
-        members::factory()->create([
+        Member::factory()->create([
             'name'=> fake()->name(),
             'email'=>fake()->email()
         ]

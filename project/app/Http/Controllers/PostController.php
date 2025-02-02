@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\CreatePostRequest;
 use App\Models\members;
 use App\Models\post;
 use Illuminate\Http\Request;
@@ -14,61 +16,34 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = post::with('members')->simplePaginate(10);
+        $posts = post::with('member')->latest()->simplePaginate(10);
         return view('posts.index' , ['posts' => $posts]);
     }
-<<<<<<< Updated upstream
-    public function info(post $post){
-        return view('posts.info' , ['post' => $post]);
-=======
     public function show($id){
         $posts=Post::find($id);
         return view('posts.info' , ['post' =>$posts]);
->>>>>>> Stashed changes
     }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
-        //
+        post::create([
+            'name'=> $request->input('name') ,
+            'member_id' =>2
+        ]);
+        return redirect('/post');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(post $post)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(post $post)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, post $post)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    
     public function destroy(post $post)
     {
         //

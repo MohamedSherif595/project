@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\members;
+use App\Models\member;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +19,7 @@ class postFactory extends Factory
     {
         return [
             'name'=>fake()->country(),
-            'members_id'=>members::factory()
+            'member_id'=>Member::factory()
         ];
     }
 }
