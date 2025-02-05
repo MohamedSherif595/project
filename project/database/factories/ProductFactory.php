@@ -1,14 +1,13 @@
 <?php
 
 namespace Database\Factories;
-
 use App\Models\member;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\post>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
  */
-class postFactory extends Factory
+class ProductFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +17,8 @@ class postFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>fake()->country(),
+            'name'=>fake()->jobTitle(),
+            'price'=>fake()->numberBetween(5000 , 200000),
             'member_id'=>Member::factory()
         ];
     }

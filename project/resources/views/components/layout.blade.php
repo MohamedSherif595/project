@@ -10,15 +10,17 @@
     <div class="dash">
         <nav>
             <ul class="side">
-                <li><a class="nav" href="/project/public/" >home</a></li>
-                <li><a class="nav" href="/project/public/contact/" >contact</a></li>
+                <li><a class="nav" href="{{route('posts.index')}}" >posts</a></li>
+                <li><a class="nav" href="{{route('products.index')}}" >products</a></li>
                 @guest
-                <li><a class="nav" href="/project/public/login">LOG IN</a></li>
-                <li><a class="nav" href="/project/public/register">REGISTER</a></li>
+                <li><a class="nav" href=" {{route('login.form')}} ">LOG IN</a></li>
+                <li><a class="nav" href="{{route('register.form')}}">REGISTER</a></li>
                 @endguest
 
                 @auth
-                    <form action="/project/public/logout" method="POST" >
+                <li><a class="nav" href="{{route('posts.create')}}">create post</a></li>
+                <li><a class="nav" href="{{route('products.create')}}">create product</a></li>
+                    <form action="{{route('logout')}}" method="POST" >
                         @csrf
                         <li><button class="nav" >LOG OUT</button></li>
                     </form>

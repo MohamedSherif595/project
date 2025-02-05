@@ -1,7 +1,7 @@
 <x-layout>
 
     <h1>LOG IN</h1>
-    <form method="POST" action="/project/public/login">
+    <form method="POST" action="{{route('login')}}">
         @csrf    
         <div>
             <label for="email">email</label>
