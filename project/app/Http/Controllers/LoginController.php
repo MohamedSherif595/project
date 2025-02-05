@@ -1,42 +1,40 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Validation\ValidationException;
 
-class loginusercontroller extends Controller
+class LoginController extends Controller
 {
-    public function log (){
+    public function show (){
         return view('auth.login');
     }
 
 
-    public function store (){
-        $atrr = request()->validate([
-            'email' => ['required', 'email'],
-            'password' =>['required']
-        ]);
+    public function login (LoginRequest $request){
     
-    if ( ! Auth::attempt($atrr)) {
+    $credenticals = $request -> validated();
+    
+    if ( ! Auth::attempt($credenticals)) {
         throw ValidationException::withMessages([
             'emaill' => 'your email is wrong',
             'password' => 'your pass is wrong'
         ]);
     }       
-
-
         request()->session()->regenerate();
-        return redirect('/');
+        return redirect('/posts');
     }
 
 
 
-    public function destroy (){
+    public function logout (){
         Auth::logout();
 
-        return redirect('/');
+        return redirect('/posts');
     }
 }
